@@ -1,12 +1,17 @@
 package kr.ac.kopo.ctc.spring.board.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity // Entity를 사용하기 위해 해당 클래스가 Entity라는 것을 Spring에게 알려줌
 // JPA 는 entity 라는 컴포넌트를 확인하여 해당entity를 토대로 데이터 생성 및 처리, 가공 
@@ -18,6 +23,25 @@ public class BoardItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Long id;
+	
+
+	public BoardGroup getBoardGroup() {
+		return boardGroup;
+	}
+
+	public void setBoardGroup(BoardGroup boardGroup) {
+		this.boardGroup = boardGroup;
+	}
+
+	@ManyToOne(optional=false) // BoardGroup이 없는 BoardItem은 없다는 조건이므로 Inner join을 수행한다. 
+	@JoinColumn(name = "boardGroup_id")
+	private BoardGroup boardGroup;
+
+	@Override
+	public String toString() {
+		String result = "[boardItem_"+id+"] " + no;
+		return result;
+	}
 
 	@Column
 	private int no;
@@ -34,7 +58,7 @@ public class BoardItem {
 	@Column
 	private int view;
 	
-	//getter, setter 자동생성
+	//마우스 우클릭 > source > getter, setter 자동생성
 	public Long getId() {
 		return id;
 	}

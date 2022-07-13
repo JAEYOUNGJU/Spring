@@ -78,6 +78,8 @@ public class BoardItemRepositoryTest {
 	@Test
 	void delete() {
 		boardItemRepository.deleteByNo(1); //칼럼 'no'의 1을 삭제
+		
+		
 	}
 
 }

@@ -16,16 +16,6 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.ctc.spring.board.domain.BoardItem;
 
-//----------to do-----------
-//create
-//update 
-//delete
-//selectOne
-//selectAll
-//selectAll(search)
-//selectAll(page)
-//selectAll(search, page)
-
 @Repository
 //BoardItemRepository 의 query method 기능을 사용한 repository
 public interface BoardItemRepository extends JpaRepository<BoardItem, Long>, JpaSpecificationExecutor<BoardItem> {
