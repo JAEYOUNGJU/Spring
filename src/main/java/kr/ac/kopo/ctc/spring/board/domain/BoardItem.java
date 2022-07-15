@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity // Entity를 사용하기 위해 해당 클래스가 Entity라는 것을 Spring에게 알려줌
 public class BoardItem {
 
@@ -31,8 +33,8 @@ public class BoardItem {
 	public void setBoardGroup(BoardGroup boardGroup) {
 		this.boardGroup = boardGroup;
 	}
-
-	@ManyToOne(optional=false) // BoardGroup이 없는 BoardItem은 없다는 조건이므로 Inner join을 수행한다. 
+	@JsonBackReference
+	@ManyToOne(fetch=FetchType.LAZY) // BoardGroup이 없는 BoardItem은 없다는 조건이므로 Inner join을 수행한다. 
 	@JoinColumn(name = "boardGroup_id")
 	private BoardGroup boardGroup;
 
