@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class BoardGroup {
 
@@ -37,6 +40,7 @@ public class BoardGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@JsonManagedReference
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "boardGroup") // mappedBy 양방향 관계 설정시 관계의 주체가 되는 쪽에서 정의함
 	// 부모입장에서 fetch = FetchType.LAZY 은 기본값
 	//CascadeType.ALL 이 설정이 되어있으면 boardgroup 이 지울 때 그 안에 있는 boardItem들도 지워지게 되는 것
