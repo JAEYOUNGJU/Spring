@@ -14,17 +14,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity // Entity를 사용하기 위해 해당 클래스가 Entity라는 것을 Spring에게 알려줌
-// JPA 는 entity 라는 컴포넌트를 확인하여 해당entity를 토대로 데이터 생성 및 처리, 가공 
-// Entity = DB의 Table 명
 public class BoardItem {
 
 	@Id
-	// 기본키를 자동으로 생성할 때 @GeneratedValue 어노테이션이 함께 사용됨
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Long id;
 	
-
+	@Column
+	private String author;
+	
 	public BoardGroup getBoardGroup() {
 		return boardGroup;
 	}
@@ -49,8 +48,7 @@ public class BoardItem {
 	@Column
 	private String title;
 
-	@Column
-	private String author;
+
 
 	@Column
 	private Date created;
@@ -108,3 +106,11 @@ public class BoardItem {
 	}
 
 }
+
+
+
+//localgost:8084/BoardItem/3, GET : BoardItem의 id값인 3을 read 해라
+
+
+
+

@@ -1,6 +1,5 @@
 package kr.ac.kopo.ctc.spring.board.service;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
