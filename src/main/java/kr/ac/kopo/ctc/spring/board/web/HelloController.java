@@ -19,8 +19,8 @@ import kr.ac.kopo.ctc.spring.board.domain.BoardItem;
 @RequestMapping(value = "/boardItem") //공통적인 URL은 class에 @RequestMapping으로 설정
 public class HelloController {
 		
-	//boardItem 이후에 나올 URL 지정
-	@RequestMapping(value = "") // /boardItem 만 입력할 경우 뜨는 출력할 화면 설정
+
+	@RequestMapping(value = "")
 	public String helloSpringBoot (Model model) {
 		model.addAttribute("name", "주재영");
 		return "hello";
