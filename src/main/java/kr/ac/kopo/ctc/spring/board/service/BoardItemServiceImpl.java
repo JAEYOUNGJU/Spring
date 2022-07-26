@@ -14,6 +14,7 @@ public class BoardItemServiceImpl implements BoardItemService {
 	@Override
 	public void test() {
 		System.out.println("BoardItemServiceImpl.test() 메소드 호출");
+		
 	}
 
 	@Override
